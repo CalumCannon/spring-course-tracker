@@ -14,13 +14,7 @@ public class Booking {
     private Long id;
 
     @Column
-    private String name;
-
-    @Column
-    private String town;
-
-    @Column
-    private int starRating;
+    private String date;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
@@ -30,12 +24,14 @@ public class Booking {
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    public Booking(String name, String town, int starRating, Course course, Customer customer) {
-        this.name = name;
-        this.town = town;
-        this.starRating = starRating;
+    public Booking(String date, Course course, Customer customer) {
+        this.date = date;
         this.course = course;
         this.customer = customer;
+
+    }
+
+    public Booking(){
 
     }
 
@@ -64,29 +60,12 @@ public class Booking {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDate() {
+        return date;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDate(String date) {
+        this.date = date;
     }
-
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
-
-    public int getStarRating() {
-        return starRating;
-    }
-
-    public void setStarRating(int starRating) {
-        this.starRating = starRating;
-    }
-
 
 }
